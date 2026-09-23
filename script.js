@@ -20,6 +20,44 @@
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
   document.addEventListener("click", (e) => { if (!nav.contains(e.target)) setOpen(false); });
 
+  // Scroll reveals: each group of elements plays in (staggered) the first time
+  // it comes into view. CSS hides them from first paint; .in + --rd plays them.
+  const STAGGER = 0.08;
+  const revealGroups = [];
+  const group = (items, base = 0) => {
+    items = items.filter(Boolean);
+    if (items.length) revealGroups.push({ items, base });
+  };
+  const q = (root, sel) => root.querySelector(sel);
+  document.querySelectorAll(".section").forEach((sec) => {
+    // hero plays on load, a beat after its illustration starts drawing
+    const base = sec.classList.contains("section-hero") ? 0.3 : 0;
+    if (sec.classList.contains("section-audit")) {
+      group([q(sec, ".display"), q(sec, ".lede")]);
+      sec.querySelectorAll(".findings li").forEach((li) => group([q(li, ".num"), q(li, "h3"), q(li, "p")]));
+      group([q(sec, ":scope > .btn")]);
+    } else if (sec.classList.contains("section-how")) {
+      group([q(sec, ".display")]);
+      sec.querySelectorAll(".step").forEach((st) => group([q(st, ".num"), q(st, "h3"), q(st, ".step-body")]));
+    } else {
+      group([q(sec, ".display"), q(sec, ".lede"), q(sec, ":scope > .btn")], base);
+    }
+  });
+  document.querySelectorAll(".divider img").forEach((img) => group([img]));
+
+  const revealIO = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      revealIO.unobserve(e.target);
+      const g = revealGroups.find((g) => g.items[0] === e.target);
+      g.items.forEach((el, i) => {
+        el.style.setProperty("--rd", `${(g.base + i * STAGGER).toFixed(2)}s`);
+        el.classList.add("in");
+      });
+    });
+  }, { threshold: 0.2, rootMargin: "0px 0px -8% 0px" });
+  revealGroups.forEach((g) => revealIO.observe(g.items[0]));
+
   // Layered illustrations: CSS keeps the layers hidden from first paint (html.js);
   // once they have loaded and the art is on screen, .drawn plays them in (stroke
   // groups one by one, then pink, then grey wash). Reduced motion skips via CSS.

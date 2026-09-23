@@ -353,9 +353,41 @@ h1, h2, h3, p, ol { margin: 0; }
   .footer-legal .sep { display: none; }
 }
 
+/* ---------- Scroll reveals (see script.js) ----------
+   Section text fades up in a short stagger (heading, body, button), number
+   circles pop, and dividers draw themselves across. Hidden from first paint
+   while JS runs; script.js adds .in with a --rd delay per element. Uses the
+   standalone translate/scale properties so buttons keep their hover transform. */
+.js :is(.section .display, .section .lede, .section .btn,
+        .findings h3, .findings p, .step h3, .step-body) {
+  transition: opacity .5s cubic-bezier(.2, .7, .2, 1) var(--rd, 0s),
+              translate .5s cubic-bezier(.2, .7, .2, 1) var(--rd, 0s);
+}
+.js .section .btn {
+  transition: background-color .15s, color .15s, transform .15s,
+              opacity .5s cubic-bezier(.2, .7, .2, 1) var(--rd, 0s),
+              translate .5s cubic-bezier(.2, .7, .2, 1) var(--rd, 0s);
+}
+.js :is(.section .display, .section .lede, .section .btn,
+        .findings h3, .findings p, .step h3, .step-body):not(.in) {
+  opacity: 0; translate: 0 12px;
+}
+.js :is(.findings .num, .step .num) {
+  transition: opacity .3s ease-out var(--rd, 0s), scale .45s cubic-bezier(.34, 1.5, .64, 1) var(--rd, 0s);
+}
+.js :is(.findings .num, .step .num):not(.in) { opacity: 0; scale: .75; }
+.js .divider img { transition: clip-path .9s cubic-bezier(.65, 0, .35, 1) var(--rd, 0s); }
+.js .divider img:not(.in) { clip-path: inset(0 100% 0 0); }
+/* these two dividers are flipped 180°, so reveal from the other end to still draw left to right */
+.js :is(.divider-quiz, .divider-how) img:not(.in) { clip-path: inset(0 0 0 100%); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn, .nav { transition: none; }
   .logo .mark-code path, .logo .mark-smile path { transition: none; }
   .btn:hover { transform: none; }
+  .js :is(.section .display, .section .lede, .section .btn, .findings h3, .findings p,
+          .step h3, .step-body, .findings .num, .step .num, .divider img) {
+    opacity: 1; translate: none; scale: none; clip-path: none; transition: none;
+  }
 }
