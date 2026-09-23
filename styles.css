@@ -225,20 +225,44 @@ h1, h2, h3, p, ol { margin: 0; }
 .footer-legal .sep { white-space: pre; color: var(--cb-grey-3); }
 .footer-legal .copy { color: var(--cb-grey-2); }
 
-/* ---------- Collapsed nav (tablet + mobile) ---------- */
+/* ---------- Collapsed nav (tablet + mobile) ----------
+   Figma: codebake-site-mobile-nav-open. The drawer drops over the nav bar;
+   the toggle stays on top and swaps the menu icon for a close X. */
+.nav-toggle .icon-close, .label-drawer { display: none; }
 @media (max-width: 1039px) {
-  .nav-toggle { display: block; }
+  .nav-toggle { display: block; position: relative; z-index: 2; }
+  .nav.open .nav-toggle .icon-menu { display: none; }
+  .nav.open .nav-toggle .icon-close { display: block; }
+  .label-desktop { display: none; }
+  .label-drawer { display: inline; }
+
   .nav-menu {
-    position: absolute; top: 100%; left: 0; right: 0;
-    flex-direction: column; align-items: stretch; gap: 0;
-    padding: 8px 20px 20px;
+    position: absolute; top: 0; left: 0; right: 0; z-index: 1;
+    flex-direction: column; align-items: center; gap: 16px;
+    margin: 0;
+    padding: 60px 32px 32px;
     background: var(--cb-white);
-    border-bottom: 1px solid var(--cb-grey-1);
-    display: none;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .12);
+    visibility: hidden; opacity: 0; transform: translateY(-12px);
+    transition: opacity .2s ease, transform .25s ease, visibility 0s linear .25s;
   }
-  .nav.open .nav-menu { display: flex; }
-  .nav-menu a { padding: 12px 0; border-bottom: 1px solid var(--cb-grey-1); }
-  .nav-menu .btn-outline { margin-top: 16px; padding: 0 10px; border: 1px solid var(--cb-black); align-self: flex-start; }
+  .nav.open .nav-menu {
+    visibility: visible; opacity: 1; transform: none;
+    transition: opacity .2s ease, transform .25s ease, visibility 0s;
+  }
+  .nav-menu a,
+  .nav-menu .btn-outline {
+    display: flex; align-items: center; justify-content: center;
+    width: min(100%, 480px); height: auto;
+    padding: 12px 24px;
+    border: 0; border-radius: 16px;
+    background: var(--cb-pink); color: var(--cb-black);
+    font: 600 21px/27px var(--sans);
+    transition: background-color .15s, color .15s;
+  }
+  .nav-menu a:not(.btn-outline):hover { background: var(--cb-black); color: var(--cb-pink); }
+  .nav-menu .btn-outline { background: var(--cb-black); color: var(--cb-pink); }
+  .nav-menu .btn-outline:hover { background: var(--cb-pink); color: var(--cb-black); }
 }
 
 /* ---------- Mobile (Figma: codebake-site-mobile, 402 wide) ---------- */
@@ -275,7 +299,7 @@ h1, h2, h3, p, ol { margin: 0; }
   .section-audit .display { margin-top: 24px; }
   .findings { margin-top: 48px; gap: 48px; width: calc(100% - 32px); text-align: center; }
   .findings li { display: flex; flex-direction: column; align-items: center; gap: 0; }
-  .findings .num { margin-top: 0; }
+  .findings .num { margin-top: 0; align-self: center; }
   .findings h3 { margin-top: 16.16px; width: 100%; }
   .findings p { margin-top: 8px; width: min(321px, 100%); }
   .section-audit .btn { margin-top: 64px; }
