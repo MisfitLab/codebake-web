@@ -3,7 +3,6 @@
   --cb-black: #000000;
   --cb-white: #ffffff;
   --cb-pink: #f1d4ff;
-  --cb-pink-hover: #e6bbfb;
   --cb-grey-1: #f0f0f0; /* stroke */
   --cb-grey-2: #d9d9d9;
   --cb-grey-3: #808080;
@@ -42,16 +41,16 @@ h1, h2, h3, p, ol { margin: 0; }
 }
 .nav-logo { display: block; }
 .nav-menu { display: flex; align-items: center; gap: 32px; margin-left: auto; }
-.nav-menu a { text-decoration: none; font-size: 16px; line-height: 21px; }
-.nav-menu a:not(.btn-outline):hover { text-decoration: underline; text-underline-offset: 3px; }
+.nav-menu a { text-decoration: none; font-size: 16px; line-height: 21px; transition: color .15s; }
+.nav-menu a:not(.btn-outline):hover { color: var(--cb-grey-3); }
 .btn-outline {
   display: inline-flex; align-items: center; justify-content: center;
   height: 32px; padding: 0 10px;
   border: 1px solid var(--cb-black); border-radius: 6px;
   font-weight: 600;
-  transition: background-color .15s;
+  transition: background-color .15s, color .15s;
 }
-.btn-outline:hover { background: var(--cb-pink); }
+.btn-outline:hover { background: var(--cb-black); color: var(--cb-white); }
 .nav-toggle {
   display: none; margin-left: auto; padding: 0;
   background: none; border: 0; cursor: pointer;
@@ -73,9 +72,9 @@ h1, h2, h3, p, ol { margin: 0; }
   background: var(--cb-pink); color: var(--cb-black);
   font: 600 21px/27px var(--sans);
   text-decoration: none; white-space: nowrap;
-  transition: background-color .15s, transform .15s;
+  transition: background-color .15s, color .15s, transform .15s;
 }
-.btn:hover { background: var(--cb-pink-hover); transform: translateY(-1px); }
+.btn:hover { background: var(--cb-black); color: var(--cb-pink); transform: translateY(-1px); }
 
 /* Illustration frame: artwork is clipped to a 720×560 rectangle,
    children are positioned in % so the same numbers work on mobile. */
