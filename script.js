@@ -20,6 +20,26 @@
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
   document.addEventListener("click", (e) => { if (!nav.contains(e.target)) setOpen(false); });
 
+  // Layered illustrations: CSS keeps the layers hidden from first paint (html.js);
+  // once they have loaded and the art is on screen, .drawn plays them in (stroke
+  // groups one by one, then pink, then grey wash). Reduced motion skips via CSS.
+  document.querySelectorAll(".draw-art").forEach((art) => {
+    const loaded = Promise.race([
+      Promise.all([...art.querySelectorAll("img")].map((img) => img.decode().catch(() => {}))),
+      new Promise((r) => setTimeout(r, 4000)),
+    ]);
+    const visible = new Promise((resolve) => {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { io.disconnect(); resolve(); }
+      }, { threshold: 0.25 });
+      io.observe(art);
+    });
+    Promise.all([loaded, visible]).then(() => requestAnimationFrame(() => {
+      art.classList.add("drawn");
+      art.closest(".illo")?.classList.add("drawn");   // for extras like the bubble text
+    }));
+  });
+
   // "How we bake it" animated screens. Each is a self-contained page rendered
   // at its native size, scaled to fit its slot, and only loaded once the slot
   // scrolls into view so the reveal plays from the start.

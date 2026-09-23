@@ -112,6 +112,28 @@ h1, h2, h3, p, ol { margin: 0; }
 .illo-white { background: var(--cb-white); }
 .art { position: absolute; height: auto; }
 .art-hero         { left: 0;         top: -10.1786%; width: 100.4167%; }
+
+/* Layered illustrations (see script.js). The ink is split into stroke groups
+   that pop in one after another (each has its own --d delay), then the pink
+   and the grey wash fade in underneath. */
+.draw-art { aspect-ratio: 1 / 1; }
+.draw-art .layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+.draw-art .stroke {
+  position: absolute; height: auto;
+  transition: opacity .18s ease-out var(--d), transform .25s cubic-bezier(.2, .7, .2, 1) var(--d);
+}
+.draw-art .layer-pink { transition: opacity .3s ease-out var(--pink-d, .5s); }
+.draw-art .layer-grey { transition: opacity .45s ease-out var(--grey-d, .6s); }
+/* Hidden from first paint when JS is running; script.js adds .drawn to play */
+.js .draw-art:not(.drawn) .layer,
+.js .draw-art:not(.drawn) .stroke { opacity: 0; }
+.js .draw-art:not(.drawn) .stroke { transform: scale(.94); }
+/* Quiz bubbles: the handwritten questions fade in once the bubbles are drawn */
+.art-bubbles-text { transition: opacity .3s ease-out var(--d, 0s); }
+.js .illo:not(.drawn) .art-bubbles-text { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .js .draw-art .layer, .js .draw-art .stroke, .js .illo .art-bubbles-text { opacity: 1; transform: none; transition: none; }
+}
 .art-audit        { left: -0.6944%;  top: -0.0496%;  width: 101.2333%; }
 .art-bubbles      { left: -7.7778%;  top: -11.6571%; width: 112.2222%; }
 .art-bubbles-text { left: 16.0969%;  top: 17.2821%;  width: 67.5018%; }

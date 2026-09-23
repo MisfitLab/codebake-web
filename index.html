@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Geist:wght@400;600&family=Source+Serif+Pro:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=14fd8a45">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="stylesheet" href="styles.css?v=99282cd8">
 </head>
 <body>
   <header class="nav">
@@ -59,7 +60,31 @@
     <!-- Hero -->
     <section class="section section-hero">
       <div class="illo">
-        <img class="art art-hero" src="assets/img/illo-hero.png" alt="A stressed developer at a desk under a Big App Update calendar full of crossed-out days">
+        <!-- Hero art is split into layers (script.js + styles.css): the ink as stroke
+             groups that pop in one after another, starting from the figure, then
+             the pink and the grey wash fade in underneath. -->
+        <div class="art art-hero draw-art" role="img" aria-label="A stressed developer at a desk under a Big App Update calendar full of crossed-out days">
+          <img class="layer layer-grey" src="assets/img/hero/grey.png" width="2048" height="2048" alt="">
+          <img class="layer layer-pink" src="assets/img/hero/pink.png" width="2048" height="2048" alt="">
+          <img class="stroke" src="assets/img/hero/ink-00.png" width="192" height="195" alt="" style="left:45.752%;top:27.1%;width:9.375%;--d:0s;transform-origin:44.8% 47.9%">
+          <img class="stroke" src="assets/img/hero/ink-01.png" width="874" height="888" alt="" style="left:24.365%;top:24.121%;width:42.676%;--d:0.0325s;transform-origin:48.7% 42.2%">
+          <img class="stroke" src="assets/img/hero/ink-02.png" width="468" height="30" alt="" style="left:14.209%;top:31.494%;width:22.852%;--d:0.065s;transform-origin:50.2% 41.8%">
+          <img class="stroke" src="assets/img/hero/ink-03.png" width="478" height="233" alt="" style="left:12.549%;top:20.068%;width:23.34%;--d:0.0975s;transform-origin:48.6% 51.7%">
+          <img class="stroke" src="assets/img/hero/ink-04.png" width="781" height="468" alt="" style="left:47.119%;top:45.703%;width:38.135%;--d:0.13s;transform-origin:48.6% 38.7%">
+          <img class="stroke" src="assets/img/hero/ink-05.png" width="540" height="695" alt="" style="left:62.061%;top:8.691%;width:26.367%;--d:0.1625s;transform-origin:50.4% 58.6%">
+          <img class="stroke" src="assets/img/hero/ink-06.png" width="629" height="354" alt="" style="left:25.586%;top:51.953%;width:30.713%;--d:0.195s;transform-origin:48.5% 64.5%">
+          <img class="stroke" src="assets/img/hero/ink-07.png" width="158" height="384" alt="" style="left:21.777%;top:49.854%;width:7.715%;--d:0.2275s;transform-origin:24.0% 36.1%">
+          <img class="stroke" src="assets/img/hero/ink-08.png" width="658" height="75" alt="" style="left:28.223%;top:66.65%;width:32.129%;--d:0.26s;transform-origin:47.7% 63.5%">
+          <img class="stroke" src="assets/img/hero/ink-09.png" width="242" height="170" alt="" style="left:9.619%;top:52.49%;width:11.816%;--d:0.2925s;transform-origin:47.5% 46.7%">
+          <img class="stroke" src="assets/img/hero/ink-10.png" width="201" height="55" alt="" style="left:77.246%;top:17.383%;width:9.814%;--d:0.325s;transform-origin:43.5% 46.3%">
+          <img class="stroke" src="assets/img/hero/ink-11.png" width="131" height="144" alt="" style="left:15.234%;top:58.643%;width:6.396%;--d:0.3575s;transform-origin:40.5% 48.4%">
+          <img class="stroke" src="assets/img/hero/ink-12.png" width="1036" height="67" alt="" style="left:45.166%;top:70.605%;width:50.586%;--d:0.39s;transform-origin:51.5% 22.7%">
+          <img class="stroke" src="assets/img/hero/ink-13.png" width="663" height="268" alt="" style="left:11.963%;top:70.703%;width:32.373%;--d:0.4225s;transform-origin:36.8% 16.8%">
+          <img class="stroke" src="assets/img/hero/ink-14.png" width="686" height="136" alt="" style="left:60.645%;top:63.818%;width:33.496%;--d:0.455s;transform-origin:47.2% 71.9%">
+          <img class="stroke" src="assets/img/hero/ink-15.png" width="1599" height="204" alt="" style="left:17.188%;top:73.047%;width:78.076%;--d:0.4875s;transform-origin:57.1% 14.7%">
+          <img class="stroke" src="assets/img/hero/ink-16.png" width="388" height="364" alt="" style="left:8.496%;top:58.691%;width:18.945%;--d:0.52s;transform-origin:32.3% 44.3%">
+          <img class="stroke" src="assets/img/hero/ink-17.png" width="68" height="465" alt="" style="left:86.621%;top:17.969%;width:3.32%;--d:0.5525s;transform-origin:44.1% 50.0%">
+        </div>
       </div>
       <h1 class="display hero-title">Find out what's really going on.</h1>
       <p class="lede">Security risks, nasty bugs, tickets stuck in the backlog — we'll explain it all in plain English. Then fix it.</p>
@@ -78,11 +103,17 @@
     <!-- Quiz -->
     <section class="section section-quiz" id="quiz">
       <div class="illo">
-        <img class="art art-audit" src="assets/img/illo-audit.png" alt="">
-        <img class="art art-bubbles" src="assets/img/illo-chat-bubbles.png" alt="">
+        <div class="art art-bubbles draw-art" style="aspect-ratio:2048/2048;--pink-d:0.250s;--grey-d:0.350s">
+          <img class="layer layer-grey" src="assets/img/chat-bubbles/grey.png" width="2048" height="2048" alt="">
+          <img class="layer layer-pink" src="assets/img/chat-bubbles/pink.png" width="2048" height="2048" alt="">
+          <img class="stroke" src="assets/img/chat-bubbles/ink-00.png" width="1190" height="585" alt="" style="left:22.314%;top:15.576%;width:58.105%;--d:0.0000s;transform-origin:49.1% 46.6%">
+          <img class="stroke" src="assets/img/chat-bubbles/ink-01.png" width="763" height="383" alt="" style="left:48.389%;top:38.184%;width:37.256%;--d:0.1000s;transform-origin:51.8% 45.7%">
+          <img class="stroke" src="assets/img/chat-bubbles/ink-02.png" width="640" height="333" alt="" style="left:14.893%;top:38.574%;width:31.25%;--d:0.2000s;transform-origin:50.6% 54.6%">
+          <img class="stroke" src="assets/img/chat-bubbles/ink-03.png" width="1173" height="357" alt="" style="left:22.998%;top:53.076%;width:57.275%;--d:0.3000s;transform-origin:49.3% 51.3%">
+        </div>
         <picture>
           <source media="(max-width: 767px)" srcset="assets/img/m-bubbles-vector.svg" width="249.757" height="184.743">
-          <img class="art art-bubbles-text" src="assets/img/bubbles-vector.svg" width="486.013" height="359.501" alt="Speech bubbles asking the questions teams worry about">
+          <img class="art art-bubbles-text" style="--d:0.350s" src="assets/img/bubbles-vector.svg" width="486.013" height="359.501" alt="Speech bubbles asking the questions teams worry about">
         </picture>
       </div>
       <h2 class="display">The questions that keep you<br class="d-only"> up at night.</h2>
@@ -102,7 +133,23 @@
     <!-- Audit findings -->
     <section class="section section-audit" id="audit">
       <div class="illo">
-        <img class="art art-audit" src="assets/img/illo-audit.png" alt="A shocked developer surrounded by signs: major crash at 50k users, exposed credentials in production, 87 unpatched dependencies, 8 years of shortcuts">
+        <div class="art art-audit draw-art" role="img" aria-label="A shocked developer surrounded by signs: major crash at 50k users, exposed credentials in production, 87 unpatched dependencies, 8 years of shortcuts" style="aspect-ratio:1581/1347;--pink-d:0.340s;--grey-d:0.440s">
+          <img class="layer layer-grey" src="assets/img/audit/grey.png" width="1581" height="1347" alt="">
+          <img class="layer layer-pink" src="assets/img/audit/pink.png" width="1581" height="1347" alt="">
+          <img class="stroke" src="assets/img/audit/ink-00.png" width="133" height="206" alt="" style="left:42.441%;top:16.704%;width:8.412%;--d:0.0000s;transform-origin:37.7% 39.8%">
+          <img class="stroke" src="assets/img/audit/ink-01.png" width="467" height="784" alt="" style="left:36.622%;top:15.739%;width:29.538%;--d:0.0325s;transform-origin:49.6% 55.1%">
+          <img class="stroke" src="assets/img/audit/ink-02.png" width="473" height="478" alt="" style="left:12.144%;top:6.978%;width:29.918%;--d:0.0650s;transform-origin:43.7% 55.5%">
+          <img class="stroke" src="assets/img/audit/ink-03.png" width="204" height="254" alt="" style="left:24.794%;top:17.298%;width:12.903%;--d:0.0975s;transform-origin:53.8% 56.0%">
+          <img class="stroke" src="assets/img/audit/ink-04.png" width="569" height="563" alt="" style="left:56.546%;top:6.978%;width:35.99%;--d:0.1300s;transform-origin:49.6% 56.5%">
+          <img class="stroke" src="assets/img/audit/ink-05.png" width="170" height="207" alt="" style="left:60.531%;top:17.446%;width:10.753%;--d:0.1625s;transform-origin:49.1% 44.0%">
+          <img class="stroke" src="assets/img/audit/ink-06.png" width="176" height="321" alt="" style="left:43.327%;top:50.928%;width:11.132%;--d:0.1950s;transform-origin:51.5% 60.8%">
+          <img class="stroke" src="assets/img/audit/ink-07.png" width="494" height="339" alt="" style="left:4.617%;top:45.805%;width:31.246%;--d:0.2275s;transform-origin:48.5% 47.6%">
+          <img class="stroke" src="assets/img/audit/ink-08.png" width="150" height="242" alt="" style="left:17.078%;top:11.21%;width:9.488%;--d:0.2600s;transform-origin:53.2% 47.8%">
+          <img class="stroke" src="assets/img/audit/ink-09.png" width="214" height="250" alt="" style="left:68.944%;top:12.101%;width:13.536%;--d:0.2925s;transform-origin:53.1% 43.7%">
+          <img class="stroke" src="assets/img/audit/ink-10.png" width="454" height="360" alt="" style="left:66.603%;top:49.963%;width:28.716%;--d:0.3250s;transform-origin:41.5% 46.3%">
+          <img class="stroke" src="assets/img/audit/ink-11.png" width="762" height="269" alt="" style="left:27.324%;top:66.964%;width:48.197%;--d:0.3575s;transform-origin:45.2% 67.8%">
+          <img class="stroke" src="assets/img/audit/ink-12.png" width="179" height="113" alt="" style="left:81.404%;top:55.679%;width:11.322%;--d:0.3900s;transform-origin:49.8% 53.2%">
+        </div>
       </div>
       <h2 class="display">What the audit turns up.</h2>
       <p class="lede">These aren't hypotheticals — they're pulled straight from real audits.</p>
@@ -182,7 +229,26 @@
     <!-- CTA -->
     <section class="section section-cta" id="schedule">
       <div class="illo illo-white">
-        <img class="art art-cta" src="assets/img/illo-cta.png" alt="A relaxed, smiling developer holding a phone, daydreaming about a sailboat in the sun">
+        <div class="art art-cta draw-art" role="img" aria-label="A relaxed, smiling developer holding a phone, daydreaming about a sailboat in the sun" style="aspect-ratio:2048/2048;--pink-d:0.438s;--grey-d:0.538s">
+          <img class="layer layer-grey" src="assets/img/cta/grey.png" width="2048" height="2048" alt="">
+          <img class="layer layer-pink" src="assets/img/cta/pink.png" width="2048" height="2048" alt="">
+          <img class="stroke" src="assets/img/cta/ink-00.png" width="321" height="370" alt="" style="left:64.844%;top:28.906%;width:15.674%;--d:0.0000s;transform-origin:66.8% 35.2%">
+          <img class="stroke" src="assets/img/cta/ink-01.png" width="192" height="548" alt="" style="left:66.064%;top:30.664%;width:9.375%;--d:0.0325s;transform-origin:40.1% 36.2%">
+          <img class="stroke" src="assets/img/cta/ink-02.png" width="111" height="194" alt="" style="left:69.482%;top:36.963%;width:5.42%;--d:0.0650s;transform-origin:46.4% 67.5%">
+          <img class="stroke" src="assets/img/cta/ink-03.png" width="87" height="192" alt="" style="left:74.316%;top:50.244%;width:4.248%;--d:0.0975s;transform-origin:53.7% 57.5%">
+          <img class="stroke" src="assets/img/cta/ink-04.png" width="272" height="827" alt="" style="left:77.881%;top:51.465%;width:13.281%;--d:0.1300s;transform-origin:69.6% 53.2%">
+          <img class="stroke" src="assets/img/cta/ink-05.png" width="279" height="253" alt="" style="left:60.156%;top:52.197%;width:13.623%;--d:0.1625s;transform-origin:52.6% 47.4%">
+          <img class="stroke" src="assets/img/cta/ink-06.png" width="512" height="439" alt="" style="left:32.617%;top:13.281%;width:25%;--d:0.1950s;transform-origin:45.0% 50.4%">
+          <img class="stroke" src="assets/img/cta/ink-07.png" width="696" height="412" alt="" style="left:54.346%;top:59.082%;width:33.984%;--d:0.2275s;transform-origin:55.1% 48.2%">
+          <img class="stroke" src="assets/img/cta/ink-08.png" width="708" height="412" alt="" style="left:17.871%;top:32.08%;width:34.57%;--d:0.2600s;transform-origin:45.7% 70.3%">
+          <img class="stroke" src="assets/img/cta/ink-09.png" width="136" height="238" alt="" style="left:80.811%;top:59.375%;width:6.641%;--d:0.2925s;transform-origin:41.4% 65.3%">
+          <img class="stroke" src="assets/img/cta/ink-10.png" width="704" height="390" alt="" style="left:48.438%;top:63.867%;width:34.375%;--d:0.3250s;transform-origin:35.7% 48.1%">
+          <img class="stroke" src="assets/img/cta/ink-11.png" width="595" height="116" alt="" style="left:8.154%;top:48.975%;width:29.053%;--d:0.3575s;transform-origin:49.7% 45.2%">
+          <img class="stroke" src="assets/img/cta/ink-12.png" width="425" height="484" alt="" style="left:9.619%;top:25.195%;width:20.752%;--d:0.3900s;transform-origin:71.6% 54.6%">
+          <img class="stroke" src="assets/img/cta/ink-13.png" width="261" height="207" alt="" style="left:69.824%;top:81.006%;width:12.744%;--d:0.4225s;transform-origin:50.4% 34.2%">
+          <img class="stroke" src="assets/img/cta/ink-14.png" width="386" height="176" alt="" style="left:9.326%;top:17.09%;width:18.848%;--d:0.4550s;transform-origin:54.0% 58.4%">
+          <img class="stroke" src="assets/img/cta/ink-15.png" width="1077" height="93" alt="" style="left:46.143%;top:88.525%;width:52.588%;--d:0.4875s;transform-origin:51.8% 75.2%">
+        </div>
       </div>
       <h2 class="display cta-title">Ready to take control of your software?</h2>
       <p class="lede">Get a review of your existing codebase,<br> then a path forward.</p>
@@ -200,6 +266,6 @@
     </p>
   </footer>
 
-  <script src="script.js?v=a5c39344"></script>
+  <script src="script.js?v=3d9761a4"></script>
 </body>
 </html>
