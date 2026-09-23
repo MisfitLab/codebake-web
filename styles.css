@@ -189,9 +189,19 @@ h1, h2, h3, p, ol { margin: 0; }
 .step h3 { margin-top: 27.75px; font: 400 28px/36px var(--serif); }
 .step-body { margin-top: 32.36px; width: min(600px, 100%); }
 .step-body p + p { margin-top: 21px; }
-.step-shot { height: auto; }
-.shot-audit, .shot-status { width: min(620px, 100%); aspect-ratio: 620 / 845; object-fit: cover; }
-.shot-board { width: 100%; aspect-ratio: 960 / 690; object-fit: cover; }
+/* Animated screens: each is a self-contained page rendered at its native
+   size (data-w × data-h) and scaled to the slot by script.js (--s). */
+.step-shot { position: relative; overflow: hidden; }
+.step-shot iframe {
+  position: absolute; top: 0; left: 0;
+  border: 0; background: transparent;
+  transform-origin: 0 0; transform: scale(var(--s, 1));
+  pointer-events: none;
+  opacity: 0; transition: opacity .4s ease;
+}
+.step-shot.ready iframe { opacity: 1; }
+.shot-audit, .shot-status { width: min(620px, 100%); aspect-ratio: 620 / 845; }
+.shot-board { width: 100%; aspect-ratio: 960 / 690; }
 .step-1 .step-shot { margin-top: 0; }
 .step-2 .step-shot { margin-top: 43px; }
 .step-3 .step-shot { margin-top: -21.28px; }

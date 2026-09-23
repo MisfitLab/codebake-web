@@ -19,4 +19,50 @@
   menu.addEventListener("click", (e) => { if (e.target.closest("a")) setOpen(false); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
   document.addEventListener("click", (e) => { if (!nav.contains(e.target)) setOpen(false); });
+
+  // "How we bake it" animated screens. Each is a self-contained page rendered
+  // at its native size, scaled to fit its slot, and only loaded once the slot
+  // scrolls into view so the reveal plays from the start.
+  const shots = document.querySelectorAll(".step-shot[data-anim]");
+
+  const fit = (shot) => {
+    shot.style.setProperty("--s", shot.clientWidth / Number(shot.dataset.w));
+  };
+
+  // The bundle shows a loading screen before it swaps in the real page;
+  // keep the frame hidden until the artwork element exists.
+  const revealWhenReady = (shot, frame) => {
+    let tries = 0;
+    const check = () => {
+      let ready = true;
+      try { ready = !!frame.contentDocument.querySelector('[id$="-art"]'); } catch (e) {}
+      if (ready || ++tries > 100) shot.classList.add("ready");
+      else setTimeout(check, 50);
+    };
+    check();
+  };
+
+  const load = (shot) => {
+    const frame = shot.querySelector("iframe");
+    frame.addEventListener("load", () => revealWhenReady(shot, frame), { once: true });
+    frame.src = shot.dataset.anim;
+  };
+
+  const resize = new ResizeObserver((entries) => entries.forEach((e) => fit(e.target)));
+  const inView = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      inView.unobserve(e.target);
+      load(e.target);
+    });
+  }, { rootMargin: "0px 0px -15% 0px" });
+
+  shots.forEach((shot) => {
+    const frame = shot.querySelector("iframe");
+    frame.width = shot.dataset.w;
+    frame.height = shot.dataset.h;
+    fit(shot);
+    resize.observe(shot);
+    inView.observe(shot);
+  });
 })();
