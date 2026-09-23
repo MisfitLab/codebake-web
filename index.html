@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodeBake — Find out what's really going on</title>
+  <meta name="description" content="Security risks, nasty bugs, tickets stuck in the backlog — CodeBake audits your codebase, explains it all in plain English, then fixes it.">
+  <meta property="og:title" content="CodeBake — Find out what's really going on">
+  <meta property="og:description" content="Get a review of your existing codebase, then a path forward.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Geist:wght@400;600&family=Source+Serif+Pro:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="nav-logo" href="#top" aria-label="CodeBake home">
+      <picture>
+        <source media="(max-width: 767px)" srcset="assets/img/m-logo-nav.svg" width="104.485" height="24">
+        <img src="assets/img/logo-nav.svg" width="139.314" height="32" alt="CodeBake">
+      </picture>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <img src="assets/img/menu.svg" width="24" height="24" alt="">
+      <span class="sr-only">Menu</span>
+    </button>
+    <nav class="nav-menu" id="nav-menu" aria-label="Primary">
+      <a href="#quiz">Is it right for me?</a>
+      <a href="#audit">What the audit finds</a>
+      <a href="#how">How it works</a>
+      <a href="https://github.com/MisfitLab">Built by Misfit Labs</a>
+      <a class="btn-outline" href="#schedule">Schedule audit</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="section section-hero">
+      <div class="illo">
+        <img class="art art-hero" src="assets/img/illo-hero.png" alt="A stressed developer at a desk under a Big App Update calendar full of crossed-out days">
+      </div>
+      <h1 class="display hero-title">Find out what's really going on.</h1>
+      <p class="lede">Security risks, nasty bugs, tickets stuck in the backlog — we'll explain it all in plain English. Then fix it.</p>
+      <a class="btn" href="#schedule">Schedule your code audit</a>
+    </section>
+
+    <div class="divider divider-hero" aria-hidden="true">
+      <span>
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/img/m-divider-hero.svg" width="338" height="3.07393">
+          <img src="assets/img/divider-hero.svg" width="722" height="6.14786" alt="">
+        </picture>
+      </span>
+    </div>
+
+    <!-- Quiz -->
+    <section class="section section-quiz" id="quiz">
+      <div class="illo">
+        <img class="art art-audit" src="assets/img/illo-audit.png" alt="">
+        <img class="art art-bubbles" src="assets/img/illo-chat-bubbles.png" alt="">
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/img/m-bubbles-vector.svg" width="249.757" height="184.743">
+          <img class="art art-bubbles-text" src="assets/img/bubbles-vector.svg" width="486.013" height="359.501" alt="Speech bubbles asking the questions teams worry about">
+        </picture>
+      </div>
+      <h2 class="display">The questions that keep you<br class="d-only"> up at night.</h2>
+      <p class="lede">Every team we've audited has wondered at least one of these. You don't have to keep guessing.</p>
+      <a class="btn" href="#schedule">Schedule your code audit</a>
+    </section>
+
+    <div class="divider divider-quiz" aria-hidden="true">
+      <span>
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/img/m-divider-quiz.svg" width="338.069" height="3.06467">
+          <img src="assets/img/divider-quiz.svg" width="722.006" height="6.12934" alt="">
+        </picture>
+      </span>
+    </div>
+
+    <!-- Audit findings -->
+    <section class="section section-audit" id="audit">
+      <div class="illo">
+        <img class="art art-audit" src="assets/img/illo-audit.png" alt="A shocked developer surrounded by signs: major crash at 50k users, exposed credentials in production, 87 unpatched dependencies, 8 years of shortcuts">
+      </div>
+      <h2 class="display">What the audit turns up.</h2>
+      <p class="lede">These aren't hypotheticals — they're pulled straight from real audits.</p>
+      <ol class="findings">
+        <li>
+          <span class="num num-sm" aria-hidden="true"><span class="ring"><img src="assets/img/circle-sm.svg" width="43.3944" height="44.1127" alt=""></span><span class="digit">1</span></span>
+          <h3>Security Issues</h3>
+          <p>87 unpatched dependencies and exposed credentials sitting in production.</p>
+        </li>
+        <li>
+          <span class="num num-sm" aria-hidden="true"><span class="ring"><img src="assets/img/circle-sm.svg" width="43.3944" height="44.1127" alt=""></span><span class="digit">2</span></span>
+          <h3>Technical Debt</h3>
+          <p>8+ years of shortcuts that made every new feature slower to ship than the last.</p>
+        </li>
+        <li>
+          <span class="num num-sm" aria-hidden="true"><span class="ring"><img src="assets/img/circle-sm.svg" width="43.3944" height="44.1127" alt=""></span><span class="digit">3</span></span>
+          <h3>Scalability Problems</h3>
+          <p>System crashed at 50k users and multiple requests per second during testing.</p>
+        </li>
+      </ol>
+      <a class="btn" href="#schedule">Schedule your code audit</a>
+    </section>
+
+    <div class="divider divider-audit" aria-hidden="true">
+      <span>
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/img/m-divider-audit.svg" width="338" height="2">
+          <img src="assets/img/divider-audit.svg" width="720" height="4" alt="">
+        </picture>
+      </span>
+    </div>
+
+    <!-- How we bake it -->
+    <section class="section section-how" id="how">
+      <h2 class="display">How we bake it</h2>
+
+      <div class="step step-1">
+        <span class="num num-lg" aria-hidden="true"><span class="ring"><img src="assets/img/circle-lg.svg" width="83.2351" height="84.0986" alt=""></span><span class="digit">1</span></span>
+        <h3>Audit &amp; Prep</h3>
+        <div class="step-body">
+          <p>We scope your codebase and walk you through exactly what the audit will cover, before anything starts.</p>
+          <p>Then we go line by line — security, scalability, technical debt — and hand you a clear, honest picture of where things stand.</p>
+        </div>
+        <img class="step-shot shot-audit" src="assets/img/screen-audit.png" alt="CodeBake audit report showing findings by severity">
+      </div>
+
+      <div class="step step-2">
+        <span class="num num-lg" aria-hidden="true"><span class="ring"><img src="assets/img/circle-lg.svg" width="83.2351" height="84.0986" alt=""></span><span class="digit">2</span></span>
+        <h3>Tune-up or Rebuild</h3>
+        <div class="step-body">
+          <p>Most of the time, your app doesn't need to be reinvented. It needs the issues from the audit closed, one by one.</p>
+          <p>We work through them behind the scenes — same look, same functionality, minus the problems.</p>
+        </div>
+        <img class="step-shot shot-board" src="assets/img/screen-board.png" alt="CodeBake board with audit issues moving through to done">
+      </div>
+
+      <div class="step step-3">
+        <span class="num num-lg" aria-hidden="true"><span class="ring"><img src="assets/img/circle-lg.svg" width="83.2351" height="84.0986" alt=""></span><span class="digit">3</span></span>
+        <h3>Movin’ Forward</h3>
+        <div class="step-body">
+          <p>With a stable foundation, CodeBake keeps going — clearing the backlog of features and tickets that had been stuck for months.</p>
+          <p>No disappearing after the fix. You get ongoing progress, with regular updates on what shipped and what's next.</p>
+        </div>
+        <img class="step-shot shot-status" src="assets/img/screen-weekly-status.png" alt="CodeBake weekly status update listing what shipped">
+      </div>
+    </section>
+
+    <div class="divider divider-how" aria-hidden="true">
+      <span>
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/img/m-divider-how.svg" width="338" height="2">
+          <img src="assets/img/divider-how.svg" width="720" height="4" alt="">
+        </picture>
+      </span>
+    </div>
+
+    <!-- CTA -->
+    <section class="section section-cta" id="schedule">
+      <div class="illo illo-white">
+        <img class="art art-cta" src="assets/img/illo-cta.png" alt="A relaxed, smiling developer holding a phone, daydreaming about a sailboat in the sun">
+      </div>
+      <h2 class="display cta-title">Ready to take control of your software?</h2>
+      <p class="lede">Get a review of your existing codebase,<br> then a path forward.</p>
+      <a class="btn" href="#schedule">Schedule your code audit</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <picture>
+      <source media="(max-width: 767px)" srcset="assets/img/m-logo-footer.svg" width="180" height="41.3456">
+      <img class="footer-logo" src="assets/img/logo-footer.svg" width="240" height="55.1275" alt="CodeBake">
+    </picture>
+    <p class="footer-legal">
+      <a href="https://github.com/MisfitLab">A Misfit Labs company</a><span class="sep" aria-hidden="true">    •     </span><span class="copy">Copyright © Misfit Labs LLC</span>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
