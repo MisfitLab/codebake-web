@@ -38,8 +38,33 @@ h1, h2, h3, p, ol { margin: 0; }
   display: flex; align-items: center;
   padding: 0 24px;
   background: var(--cb-white);
+  box-shadow: 0 10px 0 rgba(0, 0, 0, 0);
+  transition: box-shadow .3s ease;
 }
+/* Figma: nav-scroll frames — hard 10px drop shadow once the page scrolls */
+.nav.scrolled { box-shadow: 0 10px 0 rgba(0, 0, 0, .06); }
 .nav-logo { display: block; }
+.logo { display: block; overflow: visible; }
+
+/* Logo mark morph: the < and > chevrons turn a quarter turn into the ^ ^ eyes
+   and the slash swings flat into the smile, crossfading halfway through. */
+.logo .mark-code path,
+.logo .mark-smile path {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform .5s cubic-bezier(.34, 1.4, .64, 1), opacity .18s ease;
+}
+.logo .mark-code path { transition-delay: 0s, .14s; }   /* fade back in late when unscrolling */
+.logo .mark-smile path { opacity: 0; }
+.logo .mark-smile .eye-l { transform: translate(-1.83px, .65px) rotate(-90deg); }
+.logo .mark-smile .eye-r { transform: translate(1.82px, 8.65px) rotate(90deg); }
+.logo .mark-smile .mouth { transform: translate(-2.3px, -6.7px) rotate(-60deg); }
+
+.nav.scrolled .logo .mark-code path { opacity: 0; transition-delay: 0s, 0s; }
+.nav.scrolled .logo .chev-l { transform: translate(1.83px, -.65px) rotate(90deg); }
+.nav.scrolled .logo .chev-r { transform: translate(-1.82px, -8.65px) rotate(-90deg); }
+.nav.scrolled .logo .slash  { transform: translate(2.3px, 6.7px) rotate(60deg); }
+.nav.scrolled .logo .mark-smile path { opacity: 1; transform: none; transition-delay: 0s, .14s; }
 .nav-menu { display: flex; align-items: center; gap: 32px; margin-left: auto; }
 .nav-menu a { text-decoration: none; font-size: 16px; line-height: 21px; transition: color .15s; }
 .nav-menu a:not(.btn-outline):hover { color: var(--cb-grey-3); }
@@ -210,6 +235,7 @@ h1, h2, h3, p, ol { margin: 0; }
 @media (max-width: 767px) {
   :root { --nav-h: 60px; }
   .nav { padding: 0 20px; }
+  .logo { width: 104.485px; height: 24px; }
 
   .section { width: calc(100% - 32px); }
   .section > :not(.illo):not(.step):not(.findings):not(.btn) { width: calc(100% - 32px); }
@@ -273,6 +299,7 @@ h1, h2, h3, p, ol { margin: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .btn { transition: none; }
+  .btn, .nav { transition: none; }
+  .logo .mark-code path, .logo .mark-smile path { transition: none; }
   .btn:hover { transform: none; }
 }

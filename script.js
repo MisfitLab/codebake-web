@@ -1,6 +1,12 @@
 (() => {
-  // Mobile/tablet nav menu
   const nav = document.querySelector(".nav");
+
+  // Scrolled state: nav shadow + logo mark morphs from code to smile
+  const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 4);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Mobile/tablet nav menu
   const toggle = nav.querySelector(".nav-toggle");
   const menu = nav.querySelector(".nav-menu");
 
