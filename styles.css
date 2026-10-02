@@ -251,7 +251,7 @@ h1, h2, h3, p, ol { margin: 0; }
    Figma: codebake-site-mobile-nav-open. The drawer drops over the nav bar;
    the toggle stays on top and swaps the menu icon for a close X. */
 .nav-toggle .icon-close, .label-drawer { display: none; }
-@media (max-width: 1039px) {
+@media (max-width: 1119px) {
   .nav-toggle { display: block; position: relative; z-index: 2; }
   .nav.open .nav-toggle .icon-menu { display: none; }
   .nav.open .nav-toggle .icon-close { display: block; }

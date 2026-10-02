@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CodeBake — Find out what's really going on</title>
-  <meta name="description" content="Security risks, nasty bugs, tickets stuck in the backlog — CodeBake audits your codebase, explains it all in plain English, then fixes it.">
+  <meta name="description" content="Security risks, nasty bugs, tickets stuck in the backlog — CodeBake gives your codebase a health check, explains it all in plain English, then fixes it.">
   <meta property="og:title" content="CodeBake — Find out what's really going on">
   <meta property="og:description" content="Get a review of your existing codebase, then a path forward.">
   <meta name="theme-color" content="#ffffff">
@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Geist:wght@400;600&family=Source+Serif+Pro:wght@400&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add("js")</script>
-  <link rel="stylesheet" href="styles.css?v=d6e3655b">
+  <link rel="stylesheet" href="styles.css?v=06eb45a1">
 </head>
 <body>
   <header class="nav">
@@ -52,10 +52,10 @@
     </button>
     <nav class="nav-menu" id="nav-menu" aria-label="Primary">
       <a href="#quiz">Is it right for me?</a>
-      <a href="#audit">What the audit finds</a>
+      <a href="#health-check">What the health check finds</a>
       <a href="#how">How it works</a>
       <a href="https://misfitlabs.vc" target="_blank" rel="noopener">Built by Misfit Labs</a>
-      <a class="btn-outline" href="https://form.typeform.com/to/M5pn8oye" target="_blank" rel="noopener"><span class="label-desktop">Schedule audit</span><span class="label-drawer" hidden>Schedule your code audit</span></a>
+      <a class="btn-outline" href="https://form.typeform.com/to/M5pn8oye" target="_blank" rel="noopener"><span class="label-desktop">Schedule health check</span><span class="label-drawer" hidden>Schedule your code health check</span></a>
     </nav>
   </header>
 
@@ -91,7 +91,7 @@
       </div>
       <h1 class="display hero-title">Find out what's really going on.</h1>
       <p class="lede">Security risks, nasty bugs, tickets stuck in the backlog — we'll explain it all in plain English. Then fix it.</p>
-      <a class="btn" href="https://form.typeform.com/to/M5pn8oye" target="_blank" rel="noopener">Schedule your code audit</a>
+      <a class="btn" href="https://form.typeform.com/to/M5pn8oye" target="_blank" rel="noopener">Schedule your code health check</a>
     </section>
 
     <div class="divider divider-hero" aria-hidden="true">
@@ -120,8 +120,8 @@
         </picture>
       </div>
       <h2 class="display">The questions that keep you<br class="d-only"> up at night.</h2>
-      <p class="lede">Every team we've audited has wondered at least one of these. You don't have to keep guessing.</p>
-      <a class="btn" href="https://form.typeform.com/to/M5pn8oye" target="_blank" rel="noopener">Schedule your code audit</a>
+      <p class="lede">Every team we've checked has wondered at least one of these. You don't have to keep guessing.</p>
+      <a class="btn" href="https://form.typeform.com/to/M5pn8oye" target="_blank" rel="noopener">Schedule your code health check</a>
     </section>
 
     <div class="divider divider-quiz" aria-hidden="true">
@@ -133,8 +133,8 @@
       </span>
     </div>
 
-    <!-- Audit findings -->
-    <section class="section section-audit" id="audit">
+    <!-- Health check findings -->
+    <section class="section section-audit" id="health-check">
       <div class="illo">
         <div class="art art-audit draw-art" role="img" aria-label="A shocked developer surrounded by signs: major crash at 50k users, exposed credentials in production, 87 unpatched dependencies, 8 years of shortcuts" style="aspect-ratio:1581/1347;--pink-d:0.340s;--grey-d:0.440s">
           <img class="layer layer-grey" src="assets/img/audit/grey.png" width="1581" height="1347" alt="">
@@ -154,8 +154,8 @@
           <img class="stroke" src="assets/img/audit/ink-12.png" width="179" height="113" alt="" style="left:81.404%;top:55.679%;width:11.322%;--d:0.3900s;transform-origin:49.8% 53.2%">
         </div>
       </div>
-      <h2 class="display">What the audit turns up.</h2>
-      <p class="lede">These aren't hypotheticals — they're pulled straight from real audits.</p>
+      <h2 class="display">What the health check turns up.</h2>
+      <p class="lede">These aren't hypotheticals — they're pulled straight from real health checks.</p>
       <ol class="findings">
         <li>
           <span class="num num-sm" aria-hidden="true"><span class="ring"><img src="assets/img/circle-sm.svg" width="43.3944" height="44.1127" alt=""></span><span class="digit">1</span></span>
@@ -173,7 +173,7 @@
           <p>System crashed at 50k users and multiple requests per second during testing.</p>
         </li>
       </ol>
-      <a class="btn" href="https://form.typeform.com/to/M5pn8oye" target="_blank" rel="noopener">Schedule your code audit</a>
+      <a class="btn" href="https://form.typeform.com/to/M5pn8oye" target="_blank" rel="noopener">Schedule your code health check</a>
     </section>
 
     <div class="divider divider-audit" aria-hidden="true">
@@ -191,22 +191,22 @@
 
       <div class="step step-1">
         <span class="num num-lg" aria-hidden="true"><span class="ring"><img src="assets/img/circle-lg.svg" width="83.2351" height="84.0986" alt=""></span><span class="digit">1</span></span>
-        <h3>Audit &amp; Prep</h3>
+        <h3>Health Check &amp; Prep</h3>
         <div class="step-body">
-          <p>We scope your codebase and walk you through exactly what the audit will cover, before anything starts.</p>
+          <p>We scope your codebase and walk you through exactly what the health check will cover, before anything starts.</p>
           <p>Then we go line by line — security, scalability, technical debt — and hand you a clear, honest picture of where things stand.</p>
         </div>
-        <div class="step-shot shot-audit" data-anim="assets/anim/audit.html" data-w="660" data-h="900"><iframe title="Animated CodeBake audit report showing critical findings" tabindex="-1" scrolling="no"></iframe></div>
+        <div class="step-shot shot-audit" data-anim="assets/anim/audit.html" data-w="660" data-h="900"><iframe title="Animated CodeBake health check report showing critical findings" tabindex="-1" scrolling="no"></iframe></div>
       </div>
 
       <div class="step step-2">
         <span class="num num-lg" aria-hidden="true"><span class="ring"><img src="assets/img/circle-lg.svg" width="83.2351" height="84.0986" alt=""></span><span class="digit">2</span></span>
         <h3>Tune-up or Rebuild</h3>
         <div class="step-body">
-          <p>Most of the time, your app doesn't need to be reinvented. It needs the issues from the audit closed, one by one.</p>
+          <p>Most of the time, your app doesn't need to be reinvented. It needs the issues from the health check closed, one by one.</p>
           <p>We work through them behind the scenes — same look, same functionality, minus the problems.</p>
         </div>
-        <div class="step-shot shot-board" data-anim="assets/anim/board.html" data-w="1420" data-h="1020"><iframe title="Animated CodeBake board with audit fixes moving across columns" tabindex="-1" scrolling="no"></iframe></div>
+        <div class="step-shot shot-board" data-anim="assets/anim/board.html" data-w="1420" data-h="1020"><iframe title="Animated CodeBake board with health check fixes moving across columns" tabindex="-1" scrolling="no"></iframe></div>
       </div>
 
       <div class="step step-3">
@@ -255,7 +255,7 @@
       </div>
       <h2 class="display cta-title">Ready to take control of your software?</h2>
       <p class="lede">Get a review of your existing codebase,<br> then a path forward.</p>
-      <a class="btn" href="https://form.typeform.com/to/M5pn8oye" target="_blank" rel="noopener">Schedule your code audit</a>
+      <a class="btn" href="https://form.typeform.com/to/M5pn8oye" target="_blank" rel="noopener">Schedule your code health check</a>
     </section>
   </main>
 
